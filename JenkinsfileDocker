@@ -50,7 +50,7 @@ pipeline {
 
         stage('Sonar Scan') {
          agent {
-        docker {
+        label 'docker' {
               // we can use the same image and workspace as we did previously
               reuseNode true
               image 'maven:3.5.0-jdk-8'
