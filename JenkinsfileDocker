@@ -40,18 +40,7 @@ pipeline {
       }
     }
 
-        stage('Sonar Scan') {
-         agent {
-        label 'docker' 
-          }
-          environment {
-            //use 'sonar' credentials scoped only to this stage
-            SONAR = credentials('sonar')
-          }
-          steps {
-            sh '/opt/jenkins-ws/tools/hudson.tasks.Maven_MavenInstallation/mvn-3.8.6/bin/mvn sonar:sonar -Dsonar.login=$SONAR_PSW'
-          }
-        }
+       
       }
  
 
