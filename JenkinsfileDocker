@@ -29,7 +29,7 @@ pipeline {
       steps {
         // using the Pipeline Maven plugin we can set maven configuration settings, publish test results, and annotate the Jenkins console
         //withMaven(options: [findbugsPublisher(), junitPublisher(ignoreAttachments: false)]) {
-          sh 'mvn clean findbugs:findbugs package'
+          sh '/opt/jenkins-ws/tools/hudson.tasks.Maven_MavenInstallation/mvn-3.8.6/bin/mvn clean findbugs:findbugs package'
        // }
       }
       post {
@@ -49,7 +49,7 @@ pipeline {
             SONAR = credentials('sonar')
           }
           steps {
-            sh 'mvn sonar:sonar -Dsonar.login=$SONAR_PSW'
+            sh '/opt/jenkins-ws/tools/hudson.tasks.Maven_MavenInstallation/mvn-3.8.6/bin/mvn sonar:sonar -Dsonar.login=$SONAR_PSW'
           }
         }
       }
