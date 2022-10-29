@@ -24,7 +24,7 @@ pipeline {
   stages {
     stage('Build') {
       agent {
-        linux {
+        any {
           /*
            * Reuse the workspace on the agent defined at top-level of Pipeline but run inside a container.
            * In this case we are running a container with maven so we don't have to install specific versions
@@ -50,7 +50,7 @@ pipeline {
 
         stage('Sonar Scan') {
           agent {
-            linux {
+            any {
               // we can use the same image and workspace as we did previously
               reuseNode true
               image 'maven:3.5.0-jdk-8'
